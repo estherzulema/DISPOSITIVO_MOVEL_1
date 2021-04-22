@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(
-      new MaterialApp(
-        title: 'Cores',
-        home: new Container(
-          color: Colors.white,
-          child: new Column(
-            children: [
-              Text('Ola, dev'),
-              Text('Tudo bem contigo ?'),
-            ],
-          ),
+void main() => runApp(Cores());
+
+class Cores extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Cores',
+      home: new Scaffold(
+        appBar: AppBar(
+          title: Text('Cores'),
+          backgroundColor: Colors.red,
+          centerTitle: true,
         ),
       ),
     );
+  }
+}
