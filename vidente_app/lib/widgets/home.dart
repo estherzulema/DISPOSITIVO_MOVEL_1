@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vidente_app/widgets/resumo.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,6 +14,20 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('Vidente'),
         centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Resumo(
+              cidade: 'Aquidauana',
+              temperaturaAtual: 33,
+              temperaturaMaxima: 39,
+              temperaturaMinima: 27,
+              descricao: 'Ensolarado',
+              numeroIcone: 1,
+            ),
+          ],
+        ),
       ),
     );
   }
