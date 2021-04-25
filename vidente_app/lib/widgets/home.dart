@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vidente_app/models/previsao_hora.dart';
+import 'package:vidente_app/services/previsao_services.dart';
+import 'package:vidente_app/widgets/proximas_temperaturas.dart';
 import 'package:vidente_app/widgets/resumo.dart';
 
 class Home extends StatefulWidget {
@@ -8,6 +11,16 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  List<PrevisaoHora> ultimasPrevisoes;
+
+  @override
+  void initState() {
+    super.initState();
+    PrevisaoServices service = PrevisaoServices();
+    //pparei aqui//
+    ultimasPrevisoes = service.recuperarUltimasPrevisoes();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +39,8 @@ class _HomeState extends State<Home> {
               descricao: 'Ensolarado',
               numeroIcone: 1,
             ),
+            Padding(padding: EdgeInsets.all(10)),
+            ProximasTemperaturas(previsoes: ultimasPrevisoes),
           ],
         ),
       ),
