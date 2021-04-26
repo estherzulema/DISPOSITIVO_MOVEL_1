@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:vidente_app/controllers/tema_controller..dart';
 
 class Resumo extends StatelessWidget {
   final String cidade;
@@ -31,8 +32,10 @@ class Resumo extends StatelessWidget {
               children: [
                 Icon(Icons.brightness_6_outlined),
                 Switch(
-                  value: false,
-                  onChanged: (valor) {},
+                  value: TemaController.instancia.usarTemaEscuro,
+                  onChanged: (valor) {
+                    TemaController.instancia.trocarTema();
+                  },
                 ),
               ],
             ),
